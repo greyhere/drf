@@ -16,13 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.routers import DefaultRouter
 from myapp.views import TaskViewSet
+from graphene_django.views import GraphQLView
 
 router = DefaultRouter()
 router.register(r'tasks', TaskViewSet)
 
 urlpatterns = [
-     path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path("graphql/", csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]
