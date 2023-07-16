@@ -38,9 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rest_framework',
     "graphene_django",
-    'myapp.apps.MyappConfig',
+    'analyze.apps.AnalyzeConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +53,7 @@ MIDDLEWARE = [
 ]
 
 GRAPHENE = {
-    "SCHEMA": "myapp.schema.schema"
+    "SCHEMA": "analyze.schema.schema"
 }
 
 ROOT_URLCONF = 'myproject.urls'
